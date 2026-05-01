@@ -47,14 +47,14 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    void OnCollisonEnter(Collision2D other)
+    void OnCollisonEnter2D(Collision2D other)
     {
         _isGrounded = true;
 
     }
 
 
-    void OnCollisonExit(Collision2D other)
+    void OnCollisonExit2D(Collision2D other)
     {
         _isGrounded = false;
 
