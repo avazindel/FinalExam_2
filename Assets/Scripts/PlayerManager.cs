@@ -36,11 +36,11 @@ public class PlayerManager : MonoBehaviour
 
         Vector2 moveInput = _moveInputAction.ReadValue<Vector2>();
 
-        //movement sctripting for L&R using WASD
+        //L&R
         _rb.linearVelocity = new Vector2(moveInput.x * _movementSpeed, _rb.linearVelocity.y);
 
         //Jump on W
-        if (moveInput.y > 0.5f && _isGrounded)
+        if (moveInput.y > 0.2f && _isGrounded)
         {
             _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
             _isGrounded = false;
