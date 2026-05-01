@@ -5,6 +5,7 @@ public class PlayerManager : MonoBehaviour
 {
     [SerializeField] private float _jumpForce = 10f;
     [SerializeField] private float _movementSpeed = 5f;
+
     private Rigidbody2D _rb;
 
     private InputAction _moveInputAction;
@@ -35,17 +36,18 @@ public class PlayerManager : MonoBehaviour
 
         Vector2 moveInput = _moveInputAction.ReadValue<Vector2>();
 
-        //movement for L&R
+        //movement sctripting for L&R using WASD
         _rb.linearVelocity = new Vector2(moveInput.x * _movementSpeed, _rb.linearVelocity.y);
 
-        //Jump
-        if(moveInput.y > 0.5f && _isGrounded)
+        //Jump on W
+        if (moveInput.y > 0.5f && _isGrounded)
         {
             _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
             _isGrounded = false;
-
         }
+
     }
+   
 
     void OnCollisonEnter2D(Collision2D other)
     {
